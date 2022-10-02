@@ -1,42 +1,36 @@
-﻿/* Напишите программу, которая принимет на вход два числа (А)
-и выдыает сумму чисел от 1 до А.
-7-> 28
-4->10
-8->36 */
+﻿/* Принимает на вход число N и выдает
+произведение чисел от 1 до N.
+4->24
+5->120 */
 
-int GetNumber(string message)
+int GetNumber(string msg)
 {
     int result = 0;
     bool correctInput = false;
 
     while (!correctInput)
     {
-        Console.WriteLine(message);
+        Console.WriteLine(msg);
         correctInput = int.TryParse(Console.ReadLine(), out result);
-
         if (result < 1)
             correctInput = false;
-
         if (!correctInput)
             Console.WriteLine("Вы ввели не корректное число");
         Console.WriteLine();
     }
     return result;
-
 }
 
-
-int GetSumm(int number)
+int GetMultiple(int number)
 {
-    int summ = 0;
+    int mult = 1;
     for (int i = 1; i <= number; i++)
     {
-        summ += i;
+        mult = mult*i;
     }
-    return summ;
+    return mult;
 }
 
 int number = GetNumber("Введите число: ");
-int summ = GetSumm(number);
-
-Console.WriteLine($"Сумма чисел от 1 до {number} = {summ}");
+int mult = GetMultiple(number);
+Console.WriteLine($"Произведение чисел от 1 до: {number} равно {mult}");
